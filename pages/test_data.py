@@ -1,3 +1,3 @@
 class TestData():
-    user_name = "Evkrem"
+    user_name = "TestAutoUser"
     password = "1234"
