@@ -1,6 +1,6 @@
 import time
 
-from .pages.dashboard_page import MainPage
+from .pages.dashboard_page import DashboardPage
 from .pages.login_page import LoginPage
 import pytest
 
@@ -46,3 +46,42 @@ class TestLoginPage():
         page = LoginPage(browser, link)
         page.open()
         page.should_fail_using_passwor_in_one_time_password_field()
+
+class TestDashboardPage():
+    #@pytest.mark.skip
+    def test_user_should_open_user_management_page(self, browser):
+        link = "https://portal.galaxygaming.net/"
+        page = DashboardPage(browser, link)  # инициализируем Page Object, передаем в конструктор экземпляр драйвера
+        # и url адрес
+        page.open()  # открываем страницу
+        page.should_be_open_user_management_page()  # выполняем метод страницы — переходим на страницу логина
+
+    def test_user_should_be_open_adduser_page(self, browser):
+        link = "https://portal.galaxygaming.net/"
+        page = DashboardPage(browser, link)  # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
+        page.open()  # открываем страницу
+        page.should_be_open_adduser_page()  # выполняем метод страницы — переходим на страницу логина
+
+    def test_user_should_be_open_table_page(self, browser):
+        link = "https://portal.galaxygaming.net/"
+        page = DashboardPage(browser, link)  # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
+        page.open()  # открываем страницу
+        page.should_be_open_table_page()  # выполняем метод страницы — переходим на страницу логина
+
+    def test_user_should_be_open_award_report_page_by_link_last_10_jackpots_won(self, browser):
+        link = "https://portal.galaxygaming.net/"
+        page = DashboardPage(browser, link)  # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
+        page.open()  # открываем страницу
+        page.should_be_open_award_report_page_by_link_last_10_jackpots_won()  # выполняем метод страницы — переходим на страницу логина
+
+    def test_user_should_be_open_activity_report_page(self, browser):
+        link = "https://portal.galaxygaming.net/"
+        page = DashboardPage(browser, link)  # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
+        page.open()  # открываем страницу
+        page.should_be_open_activity_report_page()  # выполняем метод страницы — переходим на страницу логина
+
+    def test_user_should_be_open_jackpot_page(self, browser):
+        link = "https://portal.galaxygaming.net/"
+        page = DashboardPage(browser, link)  # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
+        page.open()  # открываем страницу
+        page.should_be_open_jackpot_page()  # выполняем метод страницы — переходим на страницу логина

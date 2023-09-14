@@ -1,4 +1,5 @@
-import time
+from .test_data import TestData
+
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 from .locators import BasePageLocators, LoginPageLocators
@@ -12,6 +13,16 @@ class BasePage():
 
     def open(self):
         self.browser.get(self.url)
+
+    def autorithation_user(self):
+        # input credentials of user
+        user_name_field = self.browser.find_element(*LoginPageLocators.USER_NAME)
+        user_name_field.click()
+        user_name_field.send_keys(TestData.user_name)
+        password_field = self.browser.find_element(*LoginPageLocators.PASSWORD)
+        password_field.click()
+        password_field.send_keys(TestData.password)
+        self.browser.find_element(*LoginPageLocators.SIGN_IN_BUTTON).click()
 
     def is_not_element_present(self, how, what, timeout=4):
         try:

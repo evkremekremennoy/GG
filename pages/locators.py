@@ -1,11 +1,5 @@
 from selenium.webdriver.common.by import By
 
-
-class MainPageLocators():
-    pass
-
-
-
 class LoginPageLocators():
     USER_NAME = (By.CSS_SELECTOR, "input[placeholder='Enter Username']")
     PASSWORD = (By.CSS_SELECTOR, "input[placeholder='Enter Password']")
@@ -18,7 +12,12 @@ class LoginPageLocators():
     INVALID_OTP = (By.CLASS_NAME, "login_warning")
 
 class DashboardPageLocators():
-    pass
+    USERS_GRAF = (By.CSS_SELECTOR, "a[href='listusers']")
+    ADDUSERS_LINK = (By.CSS_SELECTOR, "a[href='addUser/fromDashboard']")
+    ACTIVITY_REPORT_GRAF = (By.CSS_SELECTOR, "a[href='activityreport']")
+    TABLES_GRAF = (By.CSS_SELECTOR, "a[href='listgametables']")
+    LAST_10_JACKPOTS_GRAF = (By.CSS_SELECTOR, "a[href='awardreport/2023-09-13T00:00:00/2023-08-29T00:00:00']")
+    JACKPOTS_GRAF = (By.CSS_SELECTOR, "a[href='listjackpots']")
 
 
 class BasePageLocators():
